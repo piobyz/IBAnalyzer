@@ -39,7 +39,7 @@ struct StubNibParser: NibParserType {
         case URL(fileURLWithPath: "d.storyboard"):
             return type(of: self).dMap
         default:
-            fatalError()
+            fatalError("StubNibParser: mappingForFile")
         }
     }
 }
@@ -57,7 +57,7 @@ struct StubSwiftParser: SwiftParserType {
         case URL(fileURLWithPath: "e.swift"):
             result += type(of: self).eMap
         default:
-            fatalError()
+            fatalError("StubSwiftParser: mappingForFile")
         }
     }
 

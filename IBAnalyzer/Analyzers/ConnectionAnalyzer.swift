@@ -9,7 +9,7 @@
 import Foundation
 import SourceKittenFramework
 
-struct Declaration {
+struct Declaration: Equatable {
     var name: String
     var line: Int
     var column: Int
@@ -61,9 +61,8 @@ struct Declaration {
         }
         return (line: lines.count, column: 0)
     }
-}
 
-extension Declaration: Equatable {
+    // MARK: - Equatable
     public static func == (lhs: Declaration, rhs: Declaration) -> Bool {
         return lhs.name == rhs.name
     }

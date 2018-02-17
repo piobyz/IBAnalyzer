@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Class {
+struct Class: Equatable {
     var outlets: [Declaration]
     var actions: [Declaration]
     var inherited: [String]
-}
 
-extension Class: Equatable {
+    // MARK: - Equatable
     public static func == (lhs: Class, rhs: Class) -> Bool {
         return lhs.outlets == rhs.outlets
             && lhs.actions == rhs.actions
             && lhs.inherited == rhs.inherited
     }
+
 }

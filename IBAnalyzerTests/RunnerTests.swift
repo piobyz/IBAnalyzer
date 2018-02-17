@@ -6,9 +6,9 @@
 //  Copyright © 2017 Arkadiusz Holko. All rights reserved.
 //
 
-import XCTest
-import SourceKittenFramework
 @testable import IBAnalyzer
+import SourceKittenFramework
+import XCTest
 
 private class MockAnalyzer: Analyzer {
     var lastUsedConfiguration: AnalyzerConfiguration?
@@ -30,7 +30,10 @@ class RunnerTests: XCTestCase {
         let mockAnalyzer = MockAnalyzer()
         do {
             _ = try runner.issues(using: [mockAnalyzer])
-            let configuration = mockAnalyzer.lastUsedConfiguration!
+            guard let configuration = mockAnalyzer.lastUsedConfiguration else {
+                XCTFail("Last Used Configuration does not exist.")
+                return
+            }
 
             let nibMap = StubNibParser.cMap.merging(other: StubNibParser.dMap)
             XCTAssertEqual(configuration.classNameToNibMap, nibMap)
@@ -40,29 +43,6 @@ class RunnerTests: XCTestCase {
         } catch let error {
             XCTFail("Unexpected error: \(error)")
         }
-    }
-}
-
-class RunnerFilesTests: XCTestCase {
-
-    func testNibFiles() {
-        let runner = Runner(path: "example", directoryEnumerator: StubFineDirectoryContentsEnumerator())
-        XCTAssertEqual(try runner.nibFiles(), ["c.xib", "d.storyboard"].map { URL(fileURLWithPath: $0) })
-    }
-
-    func testSwiftFiles() {
-        let runner = Runner(path: "example", directoryEnumerator: StubFineDirectoryContentsEnumerator())
-        XCTAssertEqual(try runner.swiftFiles(), ["a.swift", "e.swift"].map { URL(fileURLWithPath: $0) })
-    }
-
-    func testNibFilesThrows() {
-        let runner = Runner(path: "example", directoryEnumerator: StubThrowingDirectoryContentsEnumerator())
-        XCTAssertThrowsError(try runner.nibFiles())
-    }
-
-    func testSwiftFilesThrows() {
-        let runner = Runner(path: "example", directoryEnumerator: StubThrowingDirectoryContentsEnumerator())
-        XCTAssertThrowsError(try runner.swiftFiles())
     }
 }
 

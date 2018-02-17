@@ -25,6 +25,7 @@
 		A6C7454C1E3E22D200022FE8 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7454B1E3E22D200022FE8 /* Runner.swift */; };
 		A6C7454E1E3E2D8D00022FE8 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7454D1E3E2D8D00022FE8 /* RunnerTests.swift */; };
 		A6C745501E3E399B00022FE8 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7454F1E3E399B00022FE8 /* Stubs.swift */; };
+		AE186BC22038A2300090A5C2 /* RunnerFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE186BC12038A2300090A5C2 /* RunnerFilesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		A6C7454B1E3E22D200022FE8 /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		A6C7454D1E3E2D8D00022FE8 /* RunnerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		A6C7454F1E3E399B00022FE8 /* Stubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		AE186BC12038A2300090A5C2 /* RunnerFilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerFilesTests.swift; sourceTree = "<group>"; };
 		E6C849BB601DF721E66C4D56 /* Pods-IBAnalyzer-IBAnalyzerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IBAnalyzer-IBAnalyzerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IBAnalyzer-IBAnalyzerTests/Pods-IBAnalyzer-IBAnalyzerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				A62F865D1E1178C30026A788 /* SwiftParserTests.swift */,
 				A6C7454D1E3E2D8D00022FE8 /* RunnerTests.swift */,
 				A6C7454F1E3E399B00022FE8 /* Stubs.swift */,
+				AE186BC12038A2300090A5C2 /* RunnerFilesTests.swift */,
 			);
 			path = IBAnalyzerTests;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A62F865E1E1178C30026A788 /* SwiftParserTests.swift in Sources */,
+				AE186BC22038A2300090A5C2 /* RunnerFilesTests.swift in Sources */,
 				A6AD226F1E2A9D6D00AFCEF1 /* ConnectionAnalyzerTests.swift in Sources */,
 				A62F86891E12CB800026A788 /* NibParserTests.swift in Sources */,
 				A6C745501E3E399B00022FE8 /* Stubs.swift in Sources */,

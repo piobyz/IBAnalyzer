@@ -58,16 +58,16 @@ class SwiftParser: SwiftParserType {
                     if let attributes = insideStructure["key.attributes"] as? [[String: String]],
                         let propertyName = insideStructure["key.name"] as? String {
 
-                        let isOutlet = attributes.filter({ (dict) -> Bool in
-                            return dict.values.contains("source.decl.attribute.iboutlet")
+                        let isOutlet = attributes.filter({
+                            $0.values.contains("source.decl.attribute.iboutlet")
                         }).count > 0
 
                         if isOutlet, let nameOffset64 = insideStructure["key.nameoffset"] as? Int64 {
                             outlets.append(Declaration(name: propertyName, file: file, offset: nameOffset64, isOptional: insideStructure.isOptional))
                         }
 
-                        let isIBAction = attributes.filter({ (dict) -> Bool in
-                            return dict.values.contains("source.decl.attribute.ibaction")
+                        let isIBAction = attributes.filter({
+                            $0.values.contains("source.decl.attribute.ibaction")
                         }).count > 0
 
                         if isIBAction, let selectorName = insideStructure["key.selector_name"] as? String,
@@ -83,8 +83,8 @@ class SwiftParser: SwiftParserType {
 
                 // appending needed because of extensions
                 result[name] = Class(outlets: outlets + (existing?.outlets ?? []),
-                                              actions: actions + (existing?.actions ?? []),
-                                              inherited: inherited + (existing?.inherited ?? []))
+                                     actions: actions + (existing?.actions ?? []),
+                                     inherited: inherited + (existing?.inherited ?? []))
             }
         }
     }

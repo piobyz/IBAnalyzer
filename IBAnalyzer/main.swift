@@ -6,12 +6,12 @@
 //  Copyright © 2016 Arkadiusz Holko. All rights reserved.
 //
 
-import Foundation
 import AppKit
+import Foundation
 
-let isInUnitTests = NSClassFromString("XCTest") != nil
+let kIsInUnitTests = NSClassFromString("XCTest") != nil
 
-if !isInUnitTests {
+if !kIsInUnitTests {
     do {
         let args = ProcessInfo.processInfo.arguments
         guard args.count > 1 else {

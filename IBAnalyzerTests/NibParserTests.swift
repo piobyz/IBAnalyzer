@@ -6,8 +6,8 @@
 //  Copyright © 2016 Arkadiusz Holko. All rights reserved.
 //
 
-import XCTest
 @testable import IBAnalyzer
+import XCTest
 
 class NibParserTests: XCTestCase {
 

@@ -28,13 +28,12 @@ class NibParser: NibParserType {
 // Thanks to SwiftGen for the inspiration :)
 
 private class ParserDelegate: NSObject, XMLParserDelegate {
-
     private struct Element {
         let tag: String
         let customClassName: String?
     }
 
-    var url: URL!
+    var url: URL?
     var inObjects = false
     var inConnections = false
     private var stack: [Element] = []
@@ -42,9 +41,12 @@ private class ParserDelegate: NSObject, XMLParserDelegate {
     var classNameToNibMap: [String: Nib] = [:]
     var idToCustomClassMap: [String: String] = [:]
 
-    @objc func parser(_ parser: XMLParser, didStartElement elementName: String,
-                      namespaceURI: String?, qualifiedName qName: String?,
-                      attributes attributeDict: [String: String]) {
+    @objc
+    func parser(_ parser: XMLParser,
+                didStartElement elementName: String,
+                namespaceURI: String?,
+                qualifiedName qName: String?,
+                attributes attributeDict: [String: String]) {
 
         switch elementName {
         case "objects":
@@ -82,12 +84,12 @@ private class ParserDelegate: NSObject, XMLParserDelegate {
         }
     }
 
-    @objc func parser(_ parser: XMLParser, didEndElement elementName: String,
-                      namespaceURI: String?, qualifiedName qName: String?) {
+    @objc
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         switch elementName {
         case "objects":
             inObjects = false
-            assert(stack.count == 0)
+            assert(stack.isEmpty)
         case "connections":
             inConnections = false
         case "outlet", "outletCollection", "action":

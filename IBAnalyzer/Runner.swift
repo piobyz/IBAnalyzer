@@ -51,14 +51,14 @@ class Runner {
     }
 
     func nibFiles() throws -> [URL] {
-        return try files().filter { $0.pathExtension == "storyboard" || $0.pathExtension == "xib"}
+        return try files().filter { $0.pathExtension == "storyboard" || $0.pathExtension == "xib" }
     }
 
     func swiftFiles() throws -> [URL] {
         return try files().filter { $0.pathExtension == "swift" }
     }
 
-    fileprivate func files() throws -> [URL] {
+    private func files() throws -> [URL] {
         let url = URL(fileURLWithPath: path)
         return try directoryEnumerator.files(at: url, fileManager: fileManager)
     }

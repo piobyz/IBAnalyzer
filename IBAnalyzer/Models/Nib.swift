@@ -8,12 +8,11 @@
 
 import Foundation
 
-struct Nib {
+struct Nib: Equatable {
     var outlets: [Declaration]
     var actions: [Declaration]
-}
 
-extension Nib: Equatable {
+    // MARK: - Equatable
     public static func == (lhs: Nib, rhs: Nib) -> Bool {
         return lhs.outlets == rhs.outlets && lhs.actions == rhs.actions
     }

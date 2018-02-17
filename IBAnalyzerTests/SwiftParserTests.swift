@@ -6,9 +6,9 @@
 //  Copyright © 2016 Arkadiusz Holko. All rights reserved.
 //
 
-import XCTest
-import SourceKittenFramework
 @testable import IBAnalyzer
+import SourceKittenFramework
+import XCTest
 
 // swiftlint:disable line_length
 class SwiftParserTests: XCTestCase {

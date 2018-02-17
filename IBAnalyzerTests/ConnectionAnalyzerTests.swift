@@ -6,8 +6,8 @@
 //  Copyright © 2017 Arkadiusz Holko. All rights reserved.
 //
 
-import XCTest
 @testable import IBAnalyzer
+import XCTest
 
 extension ConnectionIssue: Equatable {
     public static func == (lhs: ConnectionIssue, rhs: ConnectionIssue) -> Bool {

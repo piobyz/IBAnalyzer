@@ -9,7 +9,7 @@
 import Foundation
 
 /// Special outlets declared in UIKit classes.
-private let uiKitOutlets: [String: [String]] = [
+private let kUIKitOutlets: [String: [String]] = [
     "UITextField": ["delegate"],
     "UITableView": ["delegate", "dataSource"],
     "UITableViewCell": ["accessoryView", "backgroundView", "editingAccessoryView", "selectedBackgroundView"],
@@ -40,7 +40,7 @@ private let uiKitOutlets: [String: [String]] = [
 
 func uiKitClassNameToClass() -> [String: Class] {
     var dict: [String: Class] = [:]
-    for (name, outlets) in uiKitOutlets {
+    for (name, outlets) in kUIKitOutlets {
         var outletArray: [Declaration] = []
         for outlet in outlets {
             outletArray.append(Declaration(name: outlet, line: 0, column: 0))

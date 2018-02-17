@@ -6,17 +6,19 @@
 //  Copyright © 2017 Arkadiusz Holko. All rights reserved.
 //
 
-import XCTest
 @testable import IBAnalyzer
+import XCTest
 
 // swiftlint:disable force_try
 // swiftlint:disable line_length
 class DirectoryContentsEnumeratorTests: XCTestCase {
-
     var directoryEnumerator = DirectoryContentsEnumerator()
 
     func testFlatDirectory() {
-        let directoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString, isDirectory: true)!
+        guard let directoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString, isDirectory: true) else {
+            XCTFail("Flat directory does not exist")
+            return
+        }
         try! FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
         let fileURL = directoryURL.appendingPathComponent("file.txt")
         try! "test".data(using: .utf8)?.write(to: fileURL)
@@ -26,7 +28,10 @@ class DirectoryContentsEnumeratorTests: XCTestCase {
     }
 
     func testNestedDirectory() {
-        let directoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString, isDirectory: true)!
+        guard let directoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString, isDirectory: true) else {
+            XCTFail("Nested directory does not exist")
+            return
+        }
         try! FileManager.default.createDirectory(at: directoryURL,
                                                  withIntermediateDirectories: true,
                                                  attributes: nil)
