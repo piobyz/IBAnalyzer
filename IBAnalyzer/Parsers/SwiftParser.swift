@@ -32,10 +32,15 @@ class SwiftParser: SwiftParserType {
     }
 
     private func mapping(for file: File, result: inout [String: Class]) {
-        let fileStructure = Structure(file: file)
-        let dictionary = fileStructure.dictionary
+        do {
+            let fileStructure = try Structure(file: file)
 
-        parseSubstructure(dictionary.substructure, result: &result, file: file)
+            let dictionary = fileStructure.dictionary
+
+            parseSubstructure(dictionary.substructure, result: &result, file: file)
+        } catch {
+            NSLog("Structure error: \(error)")
+        }
     }
 
     private func parseSubstructure(_ substructure: [[String : SourceKitRepresentable]],
@@ -102,7 +107,7 @@ private extension Dictionary where Key: ExpressibleByStringLiteral {
 
     var isOptional: Bool {
         if let typename = self["key.typename"] as? String,
-            let optionalString = typename.characters.last {
+            let optionalString = typename.last {
             return optionalString == "?"
         }
         return false

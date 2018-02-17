@@ -56,7 +56,7 @@ struct Declaration {
         let subString = file.contents.substring(with: range)
         let lines = subString.components(separatedBy: "\n")
 
-        if let column = lines.last?.characters.count {
+        if let column = lines.last?.count {
             return (line: lines.count, column: column)
         }
         return (line: lines.count, column: 0)
