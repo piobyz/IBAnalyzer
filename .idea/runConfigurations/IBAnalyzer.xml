@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="IBAnalyzer" type="AppleRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$(SRCROOT)/IBAnalyzerTests/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="IBAnalyzer" TARGET_NAME="IBAnalyzer" CONFIG_NAME="Debug" SCHEME_NAME="IBAnalyzer" RUN_TARGET_PROJECT_NAME="IBAnalyzer" RUN_TARGET_NAME="IBAnalyzer" MAKE_ACTIVE="TRUE">
+    <envs>
+      <env name="SRCROOT" value="$(SRCROOT)" />
+    </envs>
+    <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+      <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+    </EXTENSION>
+    <method />
+  </configuration>
+</component>
