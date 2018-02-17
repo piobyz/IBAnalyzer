@@ -43,7 +43,7 @@ class SwiftParser: SwiftParserType {
         }
     }
 
-    private func parseSubstructure(_ substructure: [[String : SourceKitRepresentable]],
+    private func parseSubstructure(_ substructure: [[String: SourceKitRepresentable]],
                                    result: inout [String: Class],
                                    file: File) {
         for structure in substructure {
@@ -89,7 +89,7 @@ class SwiftParser: SwiftParserType {
         }
     }
 
-    private func extractedInheritedTypes(structure: [String : SourceKitRepresentable]) -> [String] {
+    private func extractedInheritedTypes(structure: [String: SourceKitRepresentable]) -> [String] {
         guard let inherited = structure["key.inheritedtypes"] as? [[String: String]] else {
             return []
         }
